@@ -1,22 +1,18 @@
 package com.Sacral.ai.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import java.io.Serializable;
 
-@Entity
-public class PolicyServiceRequestDto {
+public class PolicyServiceRequestDto implements Serializable {
 
-    @Id
-    private String id;
-
+    private Long policyServiceId;
     private String serviceType;
 
-    public String getId() {
-        return id;
+    public Long getPolicyServiceId() {
+        return policyServiceId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setPolicyServiceId(Long policyServiceId) {
+        this.policyServiceId = policyServiceId;
     }
 
     public String getServiceType() {
@@ -26,38 +22,67 @@ public class PolicyServiceRequestDto {
     public void setServiceType(String serviceType) {
         this.serviceType = serviceType;
     }
-
 }
 
 package com.Sacral.ai.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import java.io.Serializable;
 
-@Entity
-public class CommonResponseDto<T> {
+public class PolicyServiceDto implements Serializable {
 
-    @Id
-    private String transactionStatus;
+    private Long policyServiceId;
+    private String serviceName;
+    private String serviceType;
 
-    private String transactionMessage;
+    public Long getPolicyServiceId() {
+        return policyServiceId;
+    }
 
+    public void setPolicyServiceId(Long policyServiceId) {
+        this.policyServiceId = policyServiceId;
+    }
+
+    public String getServiceName() {
+        return serviceName;
+    }
+
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
+    }
+
+    public String getServiceType() {
+        return serviceType;
+    }
+
+    public void setServiceType(String serviceType) {
+        this.serviceType = serviceType;
+    }
+}
+
+package com.Sacral.ai.model;
+
+import java.io.Serializable;
+
+public class CommonResponseDto<T> implements Serializable {
+
+    private int status;
+    private String message;
     private T data;
 
-    public String getTransactionStatus() {
-        return transactionStatus;
+    public int getStatus() {
+        return status;
     }
 
-    public void setTransactionStatus(String transactionStatus) {
-        this.transactionStatus = transactionStatus;
+    public void setStatus(int status) {
+        this.status = status;
     }
 
-    public String getTransactionMessage() {
-        return transactionMessage;
+    public String getMessage() {
+        return message;
     }
 
-    public void setTransactionMessage(String transactionMessage) {
-        this.transactionMessage = transactionMessage;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public T getData() {
@@ -67,86 +92,4 @@ public class CommonResponseDto<T> {
     public void setData(T data) {
         this.data = data;
     }
-
-}
-
-package com.Sacral.ai.model;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
-public class PolicyServiceDto {
-
-    @Id
-    private String policyNumber;
-
-    private String policyType;
-
-    private String policyStatus;
-
-    private String policyOwnerName;
-
-    private String policyOwnerCountry;
-
-    private String insuredName;
-
-    private String insuredCountry;
-
-    public String getPolicyNumber() {
-        return policyNumber;
-    }
-
-    public void setPolicyNumber(String policyNumber) {
-        this.policyNumber = policyNumber;
-    }
-
-    public String getPolicyType() {
-        return policyType;
-    }
-
-    public void setPolicyType(String policyType) {
-        this.policyType = policyType;
-    }
-
-    public String getPolicyStatus() {
-        return policyStatus;
-    }
-
-    public void setPolicyStatus(String policyStatus) {
-        this.policyStatus = policyStatus;
-    }
-
-    public String getPolicyOwnerName() {
-        return policyOwnerName;
-    }
-
-    public void setPolicyOwnerName(String policyOwnerName) {
-        this.policyOwnerName = policyOwnerName;
-    }
-
-    public String getPolicyOwnerCountry() {
-        return policyOwnerCountry;
-    }
-
-    public void setPolicyOwnerCountry(String policyOwnerCountry) {
-        this.policyOwnerCountry = policyOwnerCountry;
-    }
-
-    public String getInsuredName() {
-        return insuredName;
-    }
-
-    public void setInsuredName(String insuredName) {
-        this.insuredName = insuredName;
-    }
-
-    public String getInsuredCountry() {
-        return insuredCountry;
-    }
-
-    public void setInsuredCountry(String insuredCountry) {
-        this.insuredCountry = insuredCountry;
-    }
-
 }
